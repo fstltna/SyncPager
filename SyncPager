@@ -24,7 +24,9 @@ my $CHECK_URL="";
 my $text="";
 my $alertsound="";
 my $CurAlert="";
-my $DesiredAlert="";
+my $SleepHowLong=0;
+
+$CurAlert = $ALERTFILE;
 
 # Read in configuration options
 open(CONF, "<$CONF_FILE") || die("Unable to read config file '$CONF_FILE'");
@@ -44,6 +46,10 @@ while(<CONF>)
 	elsif ($FIELD_TYPE eq "CheckURL")
 	{
 		$CHECK_URL = $FIELD_VALUE;
+	}
+	elsif ($FIELD_TYPE eq "AlertSound")
+	{
+		$CurAlert = $FIELD_VALUE;
 	}
 }
 close(CONF);
@@ -74,22 +80,19 @@ print("Checking for Sysop Page Requests ($VERSION)\n");
 print("===============================================\n");
 print "Working on '$CHECK_URL'\n";
 
-$CurAlert = $ALERTFILE;
-$DesiredAlert = shift;
-if ($DesiredAlert eq "bell")
+while(<>)
 {
-	$CurAlert = $ALERTBELLFILE;
-}
-
-$text = get($CHECK_URL);
-open(FILENAME, '<', \$text);
-while(<FILENAME>)
-{
-	chop();
-	#print ("Line = '$_'\n");
-	my ($CurNode, $NodeUser, $CurDate) = split('	', $_);
-print "Node: $CurNode - Node User: $NodeUser - Cur Date: $CurDate\n";
-
-AlertOwner();
+	$text = get($CHECK_URL);
+	open(FILENAME, '<', \$text);
+	while(<FILENAME>)
+	{
+		chop();
+		#print ("Line = '$_'\n");
+		my ($CurNode, $NodeUser, $CurDate) = split('	', $_);
+		print "Node: $CurNode - Node User: $NodeUser - Cur Date: $CurDate\n";
+		AlertOwner();
+	}
+	close (FILENAME);
+	sleep($SleepHowLong);
 }
 exit(0);
