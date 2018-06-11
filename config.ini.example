@@ -1,0 +1,3 @@
+Email_Subj	Your BBS is unreachable
+Email_From	foo@bar.com
+CheckURL	http://foo.bar.com/foo.txt
