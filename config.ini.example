@@ -1,6 +1,4 @@
-Email_Subj	Your BBS is unreachable
-Email_From	foo@bar.com
 CheckURL	http://foo.bar.com/foo.txt
 AlertSound	ouralert.wav
-# or use AlertSound	ouralertbell.wav
-
+# or use AlertSound	ouralertdoorbell.wav
+SleepSecs	60
