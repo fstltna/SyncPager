@@ -4,41 +4,20 @@
     <object class="wxToolBar" name="XRCtbar">
       <bitmapsize>32</bitmapsize>
       <size>32,32</size>
-      <object class="tool" name="wxID_NEW">
-        <bitmap stock_id="wxART_NEW"/>
-        <tooltip>New</tooltip>
-        <longhelp>Start a new file</longhelp>
-      </object>
-      <object class="tool" name="wxID_OPEN">
-        <bitmap stock_id="wxART_FILE_OPEN"/>
-        <tooltip>Open</tooltip>
-        <longhelp>Open a File</longhelp>
-      </object>
       <object class="tool" name="wxID_SAVE">
-        <bitmap stock_id="wxART_FILE_SAVE"/>
-        <tooltip>Save</tooltip>
-        <longhelp>Save currently opened File</longhelp>
+        <bitmap stock_id="wxART_INFORMATION"/>
+        <tooltip>About</tooltip>
+        <longhelp>About this utility</longhelp>
       </object>
       <object class="tool" name="wxID_SAVEAS">
-        <bitmap stock_id="wxART_FILE_SAVE_AS"/>
-        <tooltip>Save Different</tooltip>
-        <longhelp>Save File under a different name</longhelp>
+        <bitmap stock_id="wxART_HELP"/>
+        <tooltip>Help</tooltip>
+        <longhelp>Usage Instructions</longhelp>
       </object>
       <object class="tool" name="wxID_EXIT">
         <bitmap stock_id="wxART_QUIT"/>
         <tooltip>Exit</tooltip>
         <longhelp>Exit Program</longhelp>
-      </object>
-      <object class="separator"/>
-      <object class="tool" name="wxID_HELP">
-        <bitmap stock_id="wxART_HELP"/>
-        <tooltip>Help</tooltip>
-        <longhelp>Usage Instructions</longhelp>
-      </object>
-      <object class="tool" name="wxID_ABOUT">
-        <bitmap stock_id="wxART_INFORMATION"/>
-        <tooltip>About</tooltip>
-        <longhelp>Information about this program</longhelp>
       </object>
     </object>
     <object class="wxMenuBar" name="XRCmenu">
@@ -49,16 +28,6 @@
           <bitmap stock_id="wxART_NEW"/>
           <accel>Ctrl-N</accel>
           <help>Start a new file</help>
-        </object>
-        <object class="wxMenuItem" name="wxID_OPEN">
-          <label>Open</label>
-          <bitmap stock_id="wxART_FILE_OPEN"/>
-          <accel>Ctrl-O</accel>
-          <help>Open a File</help>
-        </object>
-        <object class="wxMenuItem" name="wxID_REVERT">
-          <label>Revert</label>
-          <help>Revert to Saved</help>
         </object>
         <object class="wxMenuItem" name="wxID_SAVE">
           <label>Save</label>
@@ -114,8 +83,12 @@
       </object>
       <orientation>vertical</orientation>
       <sashpos>100</sashpos>
+      <style>wxBORDER_THEME</style>
     </object>
     <size>640,480</size>
     <title>SyncPager v1.0</title>
+    <XRCED>
+      <events>EVT_ICONIZE</events>
+    </XRCED>
   </object>
 </resource>

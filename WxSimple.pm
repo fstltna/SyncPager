@@ -92,35 +92,43 @@ package WxSimple; use base qw(Wx::App Exporter);
     }
 
     sub Open
-    {   use Wx qw (wxID_CANCEL wxFD_FILE_MUST_EXIST);
-        my $dlg = Wx::FileDialog->new($frame,
-          'Select one or more Files', '', '',
-          'Text Files|*.txt|All Files|*.*',
-          wxFD_FILE_MUST_EXIST);
-        if ($dlg->ShowModal() == wxID_CANCEL) { return }
-        $file = $dlg->GetPath();
+    {
+#        use Wx qw (wxID_CANCEL wxFD_FILE_MUST_EXIST);
+#        my $dlg = Wx::FileDialog->new($frame,
+#          'Select one or more Files', '', '',
+#          'Text Files|*.txt|All Files|*.*',
+#          wxFD_FILE_MUST_EXIST);
+#        if ($dlg->ShowModal() == wxID_CANCEL) { return }
+#        $file = $dlg->GetPath();
+        $file = "AboutText.txt";
         $frame->SetStatusText("Opening...$file", 0);
-        my $busy = Wx::BusyCursor->new();
+#        my $busy = Wx::BusyCursor->new();
         $OpenFile->($file);
         $frame->SetStatusText("Opening...$file...Done", 0);
     }
     
     sub Save
-    {   $frame->SetStatusText("Saving...$file", 0);
-        my $busy = Wx::BusyCursor->new();
-	$SaveFile->($file);
-        $frame->SetStatusText("Saving...$file...Done", 0);
+    {
+        $file = "AboutText.txt";
+#        $frame->SetStatusText("Saving...$file", 0);
+#        my $busy = Wx::BusyCursor->new();
+	$OpenFile->($file);
+#        $frame->SetStatusText("Saving...$file...Done", 0);
+#        $frame->SetStatusText("Loaded AboutText", 0);
     }
     
     sub SaveAs
-    {   use Wx qw (wxID_CANCEL wxFD_OVERWRITE_PROMPT wxFD_SAVE);
-        my $dlg = Wx::FileDialog->new($frame,
-          'Select one or more Files', '', '',
-          'Text Files|*.txt|All Files|*.*',
-          wxFD_OVERWRITE_PROMPT | wxFD_SAVE);
-        if ($dlg->ShowModal() == wxID_CANCEL) { return }
-        $file = $dlg->GetPath();
-        Save();
+    {
+        $file = "HelpText.txt";
+#	use Wx qw (wxID_CANCEL wxFD_OVERWRITE_PROMPT wxFD_SAVE);
+#        my $dlg = Wx::FileDialog->new($frame,
+#          'Select one or more Files', '', '',
+#          'Text Files|*.txt|All Files|*.*',
+#          wxFD_OVERWRITE_PROMPT | wxFD_SAVE);
+#        if ($dlg->ShowModal() == wxID_CANCEL) { return }
+#        $file = $dlg->GetPath();
+#        Save();
+	$OpenFile->($file);
     }
     
     sub OpenFile

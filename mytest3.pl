@@ -6,9 +6,9 @@ use WxSimple qw(FindWindowByXid MsgBox $xrc $sbar $OpenFile $frame);
 #
 # set up parameters
 #
-$xrc      = 'SyncPager.xrc';     # location of xrc file
+$xrc      = 'SyncPager.xrc';    # location of xrc file
 $sbar     = 2;	                # status bar with 2 sections
-$OpenFile = \&OpenFile;	        # funtion that opens a file
+$OpenFile = \&OpenFile;	        # function that opens a file
 #
 # create an app
 #
@@ -36,6 +36,16 @@ sub OpenFile
     local $/;
     my $textbox = FindWindowByXid('Output');
     open F, '<', $file;
+    $textbox->ChangeValue(<F>);
+    close F;
+    #MsgBox('The file is loaded in the text box');
+}
+
+sub OpenAbout
+{   my $file = shift;
+    local $/;
+    my $textbox = FindWindowByXid('Output');
+    open F, '<', "AboutText.txt";
     $textbox->ChangeValue(<F>);
     close F;
     MsgBox('The file is loaded in the text box');
