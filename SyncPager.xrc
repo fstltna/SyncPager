@@ -1,0 +1,119 @@
+<?xml version="1.0" ?>
+<resource>
+  <object class="wxFrame" name="Frame">
+    <title>SyncPager v1.0</title>
+    <object class="wxToolBar" name="XRCtbar">
+      <bitmapsize>32</bitmapsize>
+      <size>32,32</size>
+      <object class="tool" name="wxID_NEW">
+        <bitmap stock_id="wxART_NEW"></bitmap>
+        <tooltip>New</tooltip>
+        <longhelp>Start a new file</longhelp>
+      </object>
+      <object class="tool" name="wxID_OPEN">
+        <bitmap stock_id="wxART_FILE_OPEN"></bitmap>
+        <tooltip>Open</tooltip>
+        <longhelp>Open a File</longhelp>
+      </object>
+      <object class="tool" name="wxID_SAVE">
+        <bitmap stock_id="wxART_FILE_SAVE"></bitmap>
+        <tooltip>Save currently opened File</tooltip>
+        <longhelp></longhelp>
+      </object>
+      <object class="tool" name="wxID_SAVEAS">
+        <bitmap stock_id="wxART_FILE_SAVE_AS"></bitmap>
+        <tooltip>Save File under a different name</tooltip>
+      </object>
+      <object class="tool" name="wxID_EXIT">
+        <bitmap stock_id="wxART_QUIT"></bitmap>
+        <tooltip>Exit Program</tooltip>
+        <longhelp>Exit Program</longhelp>
+      </object>
+      <object class="separator"/>
+      <object class="tool" name="wxID_HELP">
+        <bitmap stock_id="wxART_HELP"></bitmap>
+        <tooltip>Help</tooltip>
+        <longhelp>Usage Instructions</longhelp>
+      </object>
+      <object class="tool" name="wxID_ABOUT">
+        <bitmap stock_id="wxART_INFORMATION"></bitmap>
+        <tooltip>About</tooltip>
+        <longhelp>Information about this program</longhelp>
+      </object>
+    </object>
+    <object class="wxMenuBar" name="XRCmenu">
+      <object class="wxMenu" name="menuFile">
+        <label>File</label>
+        <object class="wxMenuItem" name="wxID_NEW">
+          <label>New</label>
+          <bitmap stock_id="wxART_NEW"></bitmap>
+          <accel>Ctrl-N</accel>
+          <help>Start a new file</help>
+        </object>
+        <object class="wxMenuItem" name="wxID_OPEN">
+          <label>Open</label>
+          <bitmap stock_id="wxART_FILE_OPEN"></bitmap>
+          <accel>Ctrl-O</accel>
+          <help>Open a File</help>
+        </object>
+        <object class="wxMenuItem" name="wxID_REVERT">
+          <label>Revert to Saved</label>
+        </object>
+        <object class="wxMenuItem" name="wxID_SAVE">
+          <label>Save</label>
+          <bitmap stock_id="wxART_FILE_SAVE"></bitmap>
+          <accel>ctrl-S</accel>
+          <help>Save currently opened File</help>
+        </object>
+        <object class="wxMenuItem" name="wxID_SAVEAS">
+          <label>Save As</label>
+          <bitmap stock_id="wxART_FILE_SAVE"></bitmap>
+          <accel>ctrl-S</accel>
+          <help>Save File under a different name</help>
+        </object>
+        <object class="wxMenuItem" name="wxID_EXIT">
+          <label>Exit</label>
+          <bitmap stock_id="wxART_QUIT"></bitmap>
+          <accel>Ctrl-X</accel>
+          <help>Exit Program</help>
+        </object>
+      </object>
+      <object class="wxMenu" name="menuHelp">
+        <label>Help</label>
+        <object class="wxMenuItem" name="wxID_HELP">
+          <label>Help</label>
+          <bitmap stock_id="wxART_HELP"></bitmap>
+          <accel>F1</accel>
+          <help>Usage instructions</help>
+        </object>
+        <object class="wxMenuItem" name="wxID_ABOUT">
+          <label>About</label>
+          <bitmap stock_id="wxART_INFORMATION"></bitmap>
+          <help>Information about this program</help>
+        </object>
+      </object>
+    </object>
+    <object class="wxSplitterWindow">
+      <object class="wxTextCtrl" name="Text">
+        <style>wxTE_MULTILINE</style>
+      </object>
+      <object class="wxPanel">
+        <object class="wxBoxSizer">
+          <orient>wxVERTICAL</orient>
+          <object class="sizeritem">
+            <object class="wxCheckBox" name="CheckBox">
+              <label>A little checkbox</label>
+            </object>
+          </object>
+          <object class="sizeritem">
+            <object class="wxTextCtrl" name="SmallText"/>
+          </object>
+        </object>
+      </object>
+      <orientation>vertical</orientation>
+      <sashpos>100</sashpos>
+    </object>
+    <style></style>
+  </object>
+</resource>
+
