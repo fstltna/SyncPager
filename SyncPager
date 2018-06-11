@@ -1,10 +1,11 @@
-#!/usr/bin/perl
+#!./perl/bin/perl
 
 # This tool alerts the BBS sysop if they are being paged
 
 use strict;
 use warnings;
 use LWP::Simple;
+use Wx qw(:everything);
 
 my $PLAYER="/usr/bin/aplay -t wav -q";
 my $ALERTFILE="./ouralert.wav";
