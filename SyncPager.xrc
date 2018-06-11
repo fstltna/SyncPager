@@ -1,42 +1,42 @@
 <?xml version="1.0" ?>
 <resource>
   <object class="wxFrame" name="Frame">
-    <title>SyncPager v1.0</title>
     <object class="wxToolBar" name="XRCtbar">
       <bitmapsize>32</bitmapsize>
       <size>32,32</size>
       <object class="tool" name="wxID_NEW">
-        <bitmap stock_id="wxART_NEW"></bitmap>
+        <bitmap stock_id="wxART_NEW"/>
         <tooltip>New</tooltip>
         <longhelp>Start a new file</longhelp>
       </object>
       <object class="tool" name="wxID_OPEN">
-        <bitmap stock_id="wxART_FILE_OPEN"></bitmap>
+        <bitmap stock_id="wxART_FILE_OPEN"/>
         <tooltip>Open</tooltip>
         <longhelp>Open a File</longhelp>
       </object>
       <object class="tool" name="wxID_SAVE">
-        <bitmap stock_id="wxART_FILE_SAVE"></bitmap>
-        <tooltip>Save currently opened File</tooltip>
-        <longhelp></longhelp>
+        <bitmap stock_id="wxART_FILE_SAVE"/>
+        <tooltip>Save</tooltip>
+        <longhelp>Save currently opened File</longhelp>
       </object>
       <object class="tool" name="wxID_SAVEAS">
-        <bitmap stock_id="wxART_FILE_SAVE_AS"></bitmap>
-        <tooltip>Save File under a different name</tooltip>
+        <bitmap stock_id="wxART_FILE_SAVE_AS"/>
+        <tooltip>Save Different</tooltip>
+        <longhelp>Save File under a different name</longhelp>
       </object>
       <object class="tool" name="wxID_EXIT">
-        <bitmap stock_id="wxART_QUIT"></bitmap>
-        <tooltip>Exit Program</tooltip>
+        <bitmap stock_id="wxART_QUIT"/>
+        <tooltip>Exit</tooltip>
         <longhelp>Exit Program</longhelp>
       </object>
       <object class="separator"/>
       <object class="tool" name="wxID_HELP">
-        <bitmap stock_id="wxART_HELP"></bitmap>
+        <bitmap stock_id="wxART_HELP"/>
         <tooltip>Help</tooltip>
         <longhelp>Usage Instructions</longhelp>
       </object>
       <object class="tool" name="wxID_ABOUT">
-        <bitmap stock_id="wxART_INFORMATION"></bitmap>
+        <bitmap stock_id="wxART_INFORMATION"/>
         <tooltip>About</tooltip>
         <longhelp>Information about this program</longhelp>
       </object>
@@ -46,34 +46,35 @@
         <label>File</label>
         <object class="wxMenuItem" name="wxID_NEW">
           <label>New</label>
-          <bitmap stock_id="wxART_NEW"></bitmap>
+          <bitmap stock_id="wxART_NEW"/>
           <accel>Ctrl-N</accel>
           <help>Start a new file</help>
         </object>
         <object class="wxMenuItem" name="wxID_OPEN">
           <label>Open</label>
-          <bitmap stock_id="wxART_FILE_OPEN"></bitmap>
+          <bitmap stock_id="wxART_FILE_OPEN"/>
           <accel>Ctrl-O</accel>
           <help>Open a File</help>
         </object>
         <object class="wxMenuItem" name="wxID_REVERT">
-          <label>Revert to Saved</label>
+          <label>Revert</label>
+          <help>Revert to Saved</help>
         </object>
         <object class="wxMenuItem" name="wxID_SAVE">
           <label>Save</label>
-          <bitmap stock_id="wxART_FILE_SAVE"></bitmap>
+          <bitmap stock_id="wxART_FILE_SAVE"/>
           <accel>ctrl-S</accel>
           <help>Save currently opened File</help>
         </object>
         <object class="wxMenuItem" name="wxID_SAVEAS">
           <label>Save As</label>
-          <bitmap stock_id="wxART_FILE_SAVE"></bitmap>
+          <bitmap stock_id="wxART_FILE_SAVE"/>
           <accel>ctrl-S</accel>
           <help>Save File under a different name</help>
         </object>
         <object class="wxMenuItem" name="wxID_EXIT">
           <label>Exit</label>
-          <bitmap stock_id="wxART_QUIT"></bitmap>
+          <bitmap stock_id="wxART_QUIT"/>
           <accel>Ctrl-X</accel>
           <help>Exit Program</help>
         </object>
@@ -82,20 +83,21 @@
         <label>Help</label>
         <object class="wxMenuItem" name="wxID_HELP">
           <label>Help</label>
-          <bitmap stock_id="wxART_HELP"></bitmap>
+          <bitmap stock_id="wxART_HELP"/>
           <accel>F1</accel>
           <help>Usage instructions</help>
         </object>
         <object class="wxMenuItem" name="wxID_ABOUT">
           <label>About</label>
-          <bitmap stock_id="wxART_INFORMATION"></bitmap>
+          <bitmap stock_id="wxART_INFORMATION"/>
           <help>Information about this program</help>
         </object>
       </object>
     </object>
     <object class="wxSplitterWindow">
-      <object class="wxTextCtrl" name="Text">
-        <style>wxTE_MULTILINE</style>
+      <object class="wxTextCtrl" name="Output">
+        <size>640</size>
+        <style>wxTE_MULTILINE|wxTE_READONLY</style>
       </object>
       <object class="wxPanel">
         <object class="wxBoxSizer">
@@ -113,7 +115,7 @@
       <orientation>vertical</orientation>
       <sashpos>100</sashpos>
     </object>
-    <style></style>
+    <size>640,480</size>
+    <title>SyncPager v1.0</title>
   </object>
 </resource>
-

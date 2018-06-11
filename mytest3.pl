@@ -34,7 +34,7 @@ $app->MainLoop();
 sub OpenFile
 {   my $file = shift;
     local $/;
-    my $textbox = FindWindowByXid('Text');
+    my $textbox = FindWindowByXid('Output');
     open F, '<', $file;
     $textbox->ChangeValue(<F>);
     close F;
