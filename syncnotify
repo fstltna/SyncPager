@@ -1,0 +1,65 @@
+#!/usr/bin/perl
+# Expects the following command-line arguments:
+#	syncnotify <node> <user>
+
+my $OutputFile = "/var/www/html/chatreq.txt";	# Where we put our chat requests
+
+# === No changes below here
+
+my $UserNode=$ARGV[0];
+my $UserName=$ARGV[1];
+my @PageLines;
+
+if ($UserNode eq "")
+{
+	print("You need to specify the user's node as argument 1\n");
+	exit 1;
+}
+if ($UserName eq "")
+{
+	print("You need to specify the user's name as argument 2\n");
+	exit 1;
+}
+#print "Node=$UserNode Name=$UserName\n";
+
+# Read in existing file if it exists
+if (-f $OutputFile)
+{
+	open my $inhandle, '<', $OutputFile || die "Unable to open output file for reading";
+	chomp(@PageLines = <$inhandle>);
+	close $inhandle;
+}
+
+my $SawIt = "";
+# Now look if we are already paging this user
+
+foreach (@PageLines)
+{
+	my ($CurUserNode, $CurUserName, $CurUserDate) = split('	', $_);
+	if ($UserNode eq $CurUserNode)
+	{
+		$SawIt = "true";
+		break;
+	}
+}
+
+if ($SawIt eq "true")
+{
+	#print "Already saw it\n";
+	# Already saw it, no need to do anything
+	exit 0;
+}
+
+# Didn't see it so add this line to array
+my $CurTime = localtime;
+push(@PageLines, "$UserNode\t$UserName\t$CurTime");
+
+# Save array to file
+open my $outhandle, '>', $OutputFile || die "Unable to open output file for writing";
+foreach (@PageLines)
+{
+	#print "Saving $_\n";
+	print($outhandle "$_\n");
+}
+close ($outhandle);
+exit 0;
