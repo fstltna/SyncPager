@@ -5,7 +5,7 @@
 use strict;
 use warnings;
 
-my $OutputFile = "/var/www/html/chatreq.txt";	# Where we put our chat requests
+my $OutputFile = "/var/www/html/chats/chatreq.txt";	# Where we put our chat requests
 
 # === No changes below here
 
@@ -32,7 +32,6 @@ if (-f $OutputFile)
 	chomp(@PageLines = <$inhandle>);
 	close $inhandle;
 }
-
 my $SawIt = "";
 # Now look if we are already paging this user
 
@@ -58,11 +57,12 @@ my $CurTime = localtime;
 push(@PageLines, "$UserNode\t$UserName\t$CurTime");
 
 # Save array to file
-open my $outhandle, '>', $OutputFile || die "Unable to open output file for writing";
-foreach (@PageLines)
+open (my $outhandle, '>', $OutputFile) || die "Unable to open output file for writing";
+#print($outhandle "$UserNode\t$UserName\t$CurTime\n");
+foreach my $CurLine (@PageLines)
 {
-	#print "Saving $_\n";
-	print($outhandle "$_\n");
+	#print "Saving $CurLine\n";
+	print($outhandle "$CurLine\n");
 }
 close ($outhandle);
 exit 0;
