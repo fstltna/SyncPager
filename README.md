@@ -1,5 +1,5 @@
 # SyncPager (1.0)
-Alerts the Syncronet system operator that someone wants to talk to them
+Alerts the Syncronet system operator that someone wants to talk to them.
 
 Official support sites: [Official Github Repo](https://github.com/fstltna/SyncPager) - [Official Forum](https://synchronetbbs.org/index.php/forum/syncpager) or mail to marisag@synchronetbbs.org
 ![Synchronet Logo](https://SynchronetBBS.org/SynchronetLogo.png)
@@ -23,9 +23,9 @@ Official support sites: [Official Github Repo](https://github.com/fstltna/SyncPa
         LWP::Simple
         Audio::MPEG
 
-3. Copy syncnotify to /sbbs/exec - follow instructions on adding main script in scfg when sysop is being paged
-4. Copy clearpager to /sbbs/exec - follow instructions about adding this as logout script in scfg
-5. Copy ackpager to /sbbs/exec - follow instructions on adding sysop command
+3. Copy **syncnotify** to **/sbbs/exec** - follow instructions on adding main script in scfg when sysop is being paged
+4. Copy **clearpager** to **/sbbs/exec** - follow instructions about adding this as logout script in scfg
+5. Copy **ackpager** to **/sbbs/exec** - follow instructions on adding sysop command
 
 ---
 Use XRCed to edit the .xrc file
