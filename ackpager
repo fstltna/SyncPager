@@ -12,20 +12,17 @@ my @PageLines;
 my @PageLinesOutput;
 my $CurLine="";
 
+# Read in node to clear
 print "What node should I clear?\n";
-
 my $UserInput = <STDIN>;
-#my $UserInput = "1";
-
-#chop($UserInput);
-
+chop($UserInput);
 if ($UserInput eq "")
 {
 	print("You need to specify the user's node to clear\n");
 	exit 1;
 }
 
-#print "Clearing '$UserInput'\n";
+print "Clearing '$UserInput'\n";
 
 # Read in existing file if it exists
 if (! -f $OutputFile)
@@ -38,30 +35,24 @@ chomp(@PageLines = <$handle>);
 close $handle;
 
 # Now look if we are already paging this user
-print "Saw this: @PageLines\n";
 foreach $CurLine (@PageLines)
 {
-print "Loop: $CurLine\n";
 	my ($CurUserInput, $CurUserName, $CurUserDate) = split('	', $CurLine);
-print "Saw $CurUserInput\n";
 	if ($UserInput ne $CurUserInput)
 	{
-print "Pushed $CurLine\n";
 		push (@PageLinesOutput, $CurLine);
 	}
 }
 
 # Save array to file
 open my $outhandle, '>', $OutputFile || die "Unable to open output file for writing";
-foreach (@PageLinesOutput)
+foreach $CurLine (@PageLinesOutput)
 {
-	#print "Saving $_\n";
-	print($outhandle "$_\n");
+	print($outhandle "$CurLine\n");
 }
 close ($outhandle);
 if ((scalar @PageLinesOutput == 0) && (-f $OutputFile))
 {
-	#print "Wanting to remove file\n";
 	unlink($OutputFile);
 }
 exit 0;
