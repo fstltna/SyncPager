@@ -15,6 +15,8 @@ print "What node should I clear?\n";
 
 my $UserInput = <STDIN>;
 
+chop($UserInput);
+
 if ($UserInput eq "")
 {
 	print("You need to specify the user's node to clear\n");
@@ -37,7 +39,7 @@ foreach (@PageLines)
 	if ($UserInput ne $CurUserInput)
 	{
 		push (@PageLinesOutput, $_);
-		break;
+		last;
 	}
 }
 
