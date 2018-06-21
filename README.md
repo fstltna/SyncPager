@@ -21,9 +21,8 @@ Official support sites: [Official Github Repo](https://github.com/fstltna/SyncPa
         LWP::Simple
         Audio::MPEG
 
+3. Copy syncnotify to /sbbs/exec
+4. Copy clearpager to /sbbs/exec
 
-===outdated
-3. Create a cron job to run several times per day like this:
-
-        1 */6 * * * /root/mud-check-status/scan_mud_list.pl
-
+---
+Use XRCed to edit the .xrc file
