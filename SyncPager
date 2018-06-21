@@ -21,6 +21,7 @@ my $SleepHowLong=0;
 my $CurNode="";
 my $NodeUser="";
 my $CurDate="";
+my $PrivateKey="";
 
 # Read in configuration options
 open(CONF, "<$CONF_FILE") || die("Unable to read config file '$CONF_FILE'");
@@ -40,6 +41,10 @@ while(<CONF>)
 	elsif ($FIELD_TYPE eq "SleepSecs")
 	{
 		$SleepHowLong = $FIELD_VALUE;
+	}
+	elsif ($FIELD_TYPE eq "PrivateKey")
+	{
+		$PrivateKey = $FIELD_VALUE;
 	}
 }
 close(CONF);
