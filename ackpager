@@ -10,12 +10,14 @@ my $OutputFile = "/var/www/html/chatreq.txt";	# Where we put our chat requests
 
 my @PageLines;
 my @PageLinesOutput;
+my $CurLine="";
 
 print "What node should I clear?\n";
 
 my $UserInput = <STDIN>;
+#my $UserInput = "1";
 
-chop($UserInput);
+#chop($UserInput);
 
 if ($UserInput eq "")
 {
@@ -23,23 +25,29 @@ if ($UserInput eq "")
 	exit 1;
 }
 
+#print "Clearing '$UserInput'\n";
+
 # Read in existing file if it exists
-if (-f $OutputFile)
+if (! -f $OutputFile)
 {
-	open my $inhandle, '<', $OutputFile || die "Unable to open output file for reading";
-	chomp(@PageLines = <$inhandle>);
-	close $inhandle;
+	print("No nodes requesting chat\n");
+	exit 0;
 }
+open my $handle, '<', $OutputFile;
+chomp(@PageLines = <$handle>);
+close $handle;
 
 # Now look if we are already paging this user
-
-foreach (@PageLines)
+print "Saw this: @PageLines\n";
+foreach $CurLine (@PageLines)
 {
-	my ($CurUserInput, $CurUserName, $CurUserDate) = split('	', $_);
+print "Loop: $CurLine\n";
+	my ($CurUserInput, $CurUserName, $CurUserDate) = split('	', $CurLine);
+print "Saw $CurUserInput\n";
 	if ($UserInput ne $CurUserInput)
 	{
-		push (@PageLinesOutput, $_);
-		last;
+print "Pushed $CurLine\n";
+		push (@PageLinesOutput, $CurLine);
 	}
 }
 
