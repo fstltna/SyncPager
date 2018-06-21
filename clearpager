@@ -1,10 +1,11 @@
 #!/usr/bin/perl
 # Expects the following command-line arguments:
 #	clearpager <node>
+
 use strict;
 use warnings;
 
-my $OutputFile = "/var/www/html/chatreq.txt";	# Where we put our chat requests
+my $OutputFile = "/var/www/html/chats/chatreq.txt";	# Where we put our chat requests
 
 # === No changes below here
 
