@@ -2,6 +2,9 @@
 # Expects the following command-line arguments:
 #	syncnotify <node> <user>
 
+use strict;
+use warnings;
+
 my $OutputFile = "/var/www/html/chatreq.txt";	# Where we put our chat requests
 
 # === No changes below here
@@ -39,7 +42,7 @@ foreach (@PageLines)
 	if ($UserNode eq $CurUserNode)
 	{
 		$SawIt = "true";
-		break;
+		last;
 	}
 }
 

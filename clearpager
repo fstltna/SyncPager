@@ -1,6 +1,8 @@
 #!/usr/bin/perl
 # Expects the following command-line arguments:
 #	clearpager <node>
+use strict;
+use warnings;
 
 my $OutputFile = "/var/www/html/chatreq.txt";	# Where we put our chat requests
 
@@ -33,7 +35,7 @@ foreach (@PageLines)
 	if ($UserNode ne $CurUserNode)
 	{
 		push (@PageLinesOutput, $_);
-		break;
+		last;
 	}
 }
 
