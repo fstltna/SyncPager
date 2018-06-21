@@ -4,13 +4,20 @@
 use strict;
 use warnings;
 
-my $OutputFile = "/var/www/html/chatreq.txt";	# Where we put our chat requests
+my $OutputFile = "/var/www/html/chats/chatreq.txt";	# Where we put our chat requests
 
 # === No changes below here
 
 my @PageLines;
 my @PageLinesOutput;
 my $CurLine="";
+# Read in existing file if it exists
+if (! -f $OutputFile)
+{
+	print("---No nodes requesting chat --- Press RETURN\n");
+	my $UserInput = <STDIN>;
+	exit 0;
+}
 
 # Read in node to clear
 print "What node should I clear?\n";
@@ -22,14 +29,8 @@ if ($UserInput eq "")
 	exit 1;
 }
 
-print "Clearing '$UserInput'\n";
+#print "Clearing '$UserInput'\n";
 
-# Read in existing file if it exists
-if (! -f $OutputFile)
-{
-	print("No nodes requesting chat\n");
-	exit 0;
-}
 open my $handle, '<', $OutputFile;
 chomp(@PageLines = <$handle>);
 close $handle;
