@@ -56,7 +56,8 @@ sub AlertOwner
 	my $NodeUser = shift;
 	my $CurDate = shift;
 	#print "Alerting Sysop\n";
-	print "Node: $CurNode - Node User: $NodeUser - Cur Date: $CurDate\n";
+#	print "Node: $CurNode - Node User: $NodeUser - Cur Date: $CurDate\n";
+	print "Node: $CurNode - Node User: $NodeUser - $CurDate\n";
 	system("$PLAYER $CurAlert");
 	# Play it a second time
 	system("$PLAYER $CurAlert");
