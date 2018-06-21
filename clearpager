@@ -35,7 +35,6 @@ foreach (@PageLines)
 	if ($UserNode ne $CurUserNode)
 	{
 		push (@PageLinesOutput, $_);
-		last;
 	}
 }
 
