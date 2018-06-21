@@ -1,4 +1,53 @@
 #!/usr/bin/perl
+# Expects the following command-line arguments:
+#	clearpager <node>
 
+my $OutputFile = "/var/www/html/chatreq.txt";	# Where we put our chat requests
+
+# === No changes below here
+
+my $UserNode=$ARGV[0];
+my $UserName=$ARGV[1];
+my @PageLines;
+my @PageLinesOutput;
+
+if ($UserNode eq "")
+{
+	print("You need to specify the user's node as argument 1\n");
+	exit 1;
+}
+
+# Read in existing file if it exists
+if (-f $OutputFile)
+{
+	open my $inhandle, '<', $OutputFile || die "Unable to open output file for reading";
+	chomp(@PageLines = <$inhandle>);
+	close $inhandle;
+}
+
+# Now look if we are already paging this user
+
+foreach (@PageLines)
+{
+	my ($CurUserNode, $CurUserName, $CurUserDate) = split('	', $_);
+	if ($UserNode ne $CurUserNode)
+	{
+		push (@PageLinesOutput, $_);
+		break;
+	}
+}
+
+# Save array to file
+open my $outhandle, '>', $OutputFile || die "Unable to open output file for writing";
+foreach (@PageLinesOutput)
+{
+	#print "Saving $_\n";
+	print($outhandle "$_\n");
+}
+close ($outhandle);
+if ((scalar @PageLinesOutput == 0) && (-f $OutputFile))
+{
+	#print "Wanting to remove file\n";
+	unlink($OutputFile);
+}
 exit 0;
-
