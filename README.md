@@ -1,7 +1,9 @@
 # SyncPager (1.0)
 Alerts the Syncronet system operator that someone wants to talk to them
 
-Official support sites: [Official Github Repo](https://github.com/fstltna/SyncPager), or mail to marisag@synchronetbbs.org
+Official support sites: [Official Github Repo](https://github.com/fstltna/SyncPager) - [Official Forum](https://synchronetbbs.org/index.php/forum/syncpager) or mail to marisag@synchronetbbs.org
+![Synchronet Logo](https://SynchronetBBS.org/SynchronetLogo.png)
+
 
 ***
 
