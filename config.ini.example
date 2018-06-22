@@ -1,4 +1,4 @@
-CheckURL	http://foo.bar.com/chatreq.txt
+CheckURL	http://foo.bar.com/chats/chatreq.txt
 AlertSound	ouralert.wav
 # or use AlertSound	ouralertdoorbell.wav
 SleepSecs	60
