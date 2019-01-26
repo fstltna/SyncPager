@@ -65,4 +65,5 @@ foreach my $CurLine (@PageLines)
 	print($outhandle "$CurLine\n");
 }
 close ($outhandle);
+chmod("a+r", $OutputFile);
 exit 0;

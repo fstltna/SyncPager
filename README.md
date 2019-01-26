@@ -1,4 +1,4 @@
-# SyncPager (1.0)
+# SyncPager (1.1)
 Alerts the Syncronet system operator that someone wants to talk to them.
 
 Official support sites: [Official Github Repo](https://github.com/fstltna/SyncPager) - [Official Forum](https://synchronetbbs.org/index.php/forum/syncpager) or mail to marisag@synchronetbbs.org
@@ -8,23 +8,19 @@ Official support sites: [Official Github Repo](https://github.com/fstltna/SyncPa
 
 ***
 
-1. Make sure the Audio::MPEG requirements are met:
+1. Install audacious:
 
-	-- On Debian, Ubuntu, Mint
-	sudo apt-get install libmp3lame-dev
+	apt-get install audacious
 
-        -- On Fedora, CentOS, and RHEL
-        sudo yum --enablerepo=rpmfusion-free-updates install lame-devel 
-
-2. Use CPAN to install the following Perl modules:
+1. Use CPAN to install the following Perl modules:
 
         Email::Simple
         Email::Simple::Creator
-        Email::Sender::Simple qw(sendmail)
+        Email::Sender::Simple
         LWP::Simple
-        Audio::MPEG
+        Wx
 
-3. Copy **syncnotify** to **/sbbs/exec** - follow instructions on adding main script in scfg when sysop is being paged
+2. On the BBS server copy **syncnotify** to **/sbbs/exec** - follow instructions on adding main script in scfg when sysop is being paged
 
         scfg->Chat Features->External Sysop Chat Pagers
         
@@ -33,17 +29,17 @@ Official support sites: [Official Github Repo](https://github.com/fstltna/SyncPa
         Native: Yes
         Shell: Yes
 
-4. Copy **clearpager** to **/sbbs/exec** - follow instructions about adding this as logout script in scfg
+3. On the BBS server copy **clearpager** to **/sbbs/exec** - follow instructions about adding this as logout script in scfg
 
         scfg->External Programs->Fixed Events->Logout Event
                 
         Command Line "clearpager %#"
 
-5. Copy **ackpager** to **/sbbs/exec** - follow instructions on adding sysop command
+4. On the BBS server copy **ackpager** to **/sbbs/exec** - follow instructions on adding sysop command
 
         scfg->External Programs->Online Program Sections->Main->Main Program Section
                 
-        Command Line "clearpager %#"
+        Command Line "/sbbs/exec/ackpager"
         
         Make sure you set the access level to 90
 

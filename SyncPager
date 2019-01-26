@@ -1,14 +1,14 @@
-#!./perl/bin/perl -w
+#!/usr/bin/env perl
 
 # This tool alerts the BBS sysop if they are being paged
 
 use strict;
 use LWP::Simple;
-use Wx qw(:everything);
+#use Wx qw(:everything);
 
-my $PLAYER="/usr/bin/aplay -t wav -q";
+my $PLAYER="/usr/bin/audacious -q";
 my $ALERTFILE="./ouralert.wav";
-my $ALERTBELLFILE="./ouralertdoorbell.wav";
+my $ALERTBELLFILE="./ouralertdoorbell.mp3";
 
 # No changes below here
 my $VERSION="1.0";
@@ -16,7 +16,7 @@ my $CONF_FILE="config.ini";
 my $CHECK_URL="";
 my $text="";
 my $alertsound="";
-my $CurAlert = $ALERTFILE;
+my $CurAlert = $ALERTBELLFILE;
 my $SleepHowLong=0;
 my $CurNode="";
 my $NodeUser="";
@@ -29,7 +29,7 @@ while(<CONF>)
 {
 	chop;
 	my ($FIELD_TYPE, $FIELD_VALUE) = split (/	/, $_);
-	# print("Type is $FIELD_TYPE\n");
+	#print("Type is $FIELD_TYPE\n");
 	if ($FIELD_TYPE eq "CheckURL")
 	{
 		$CHECK_URL = $FIELD_VALUE;
@@ -64,14 +64,12 @@ sub AlertOwner
 #	print "Node: $CurNode - Node User: $NodeUser - Cur Date: $CurDate\n";
 	print "Node: $CurNode - Node User: $NodeUser - $CurDate\n";
 	system("$PLAYER $CurAlert");
-	# Play it a second time
-	system("$PLAYER $CurAlert");
 }
 
 
 print("Checking for Sysop Page Requests ($VERSION)\n");
 print("===============================================\n");
-#print "Working on '$CHECK_URL'\n";
+print "Working on '$CHECK_URL'\n";
 
 # Loop forever till break
 while(-1)
