@@ -47,7 +47,7 @@ foreach (@PageLinesOutput)
 	print($outhandle "$_\n");
 }
 close ($outhandle);
-chmod ("a+r", $OutputFile);
+system("chmod a+r $OutputFile");
 if ((scalar @PageLinesOutput == 0) && (-f $OutputFile))
 {
 	#print "Wanting to remove file\n";
