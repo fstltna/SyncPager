@@ -12,15 +12,14 @@ Official support sites: [Official Github Repo](https://github.com/fstltna/SyncPa
 
 	apt-get install audacious
 
-1. Use CPAN to install the following Perl modules:
+2. Use CPAN to install the following Perl modules:
 
         Email::Simple
         Email::Simple::Creator
         Email::Sender::Simple
         LWP::Simple
-        Wx
 
-2. On the BBS server copy **syncnotify** to **/sbbs/exec** - follow instructions on adding main script in scfg when sysop is being paged
+3. On the BBS server copy **syncnotify** to **/sbbs/exec** - follow instructions on adding main script in scfg when sysop is being paged
 
         scfg->Chat Features->External Sysop Chat Pagers
         
@@ -29,13 +28,13 @@ Official support sites: [Official Github Repo](https://github.com/fstltna/SyncPa
         Native: Yes
         Shell: Yes
 
-3. On the BBS server copy **clearpager** to **/sbbs/exec** - follow instructions about adding this as logout script in scfg
+4. On the BBS server copy **clearpager** to **/sbbs/exec** - follow instructions about adding this as logout script in scfg
 
         scfg->External Programs->Fixed Events->Logout Event
                 
         Command Line "clearpager %#"
 
-4. On the BBS server copy **ackpager** to **/sbbs/exec** - follow instructions on adding sysop command
+5. On the BBS server copy **ackpager** to **/sbbs/exec** - follow instructions on adding sysop command
 
         scfg->External Programs->Online Program Sections->Main->Main Program Section
                 
@@ -43,5 +42,10 @@ Official support sites: [Official Github Repo](https://github.com/fstltna/SyncPa
         
         Make sure you set the access level to 90
 
----
-Use XRCed to edit the .xrc file
+
+
+***
+
+Edit the **config.ini** file on your local computer. Should be self explainatory. Most important is the **CheckURL** entry that should be like the default but for your BBS server.
+
+Then all you need to do is run the SyncPager script and let it run and you will be notified when someone tries to chat with you...

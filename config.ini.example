@@ -1,5 +1,5 @@
 CheckURL	http://foo.bar.com/chats/chatreq.txt
-AlertSound	ouralert.wav
-# or use AlertSound	ouralertdoorbell.wav
+#AlertSound	ouralert.wav
+AlertSound	ouralertdoorbell.mp3
 SleepSecs	60
 PrivateKey	change_this
