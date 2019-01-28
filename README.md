@@ -8,7 +8,7 @@ Official support sites: [Official Github Repo](https://github.com/fstltna/SyncPa
 
 ***
 
-1. Install audacious:
+1. Install audacious on the client/local-side:
 
 	apt-get install audacious
 
