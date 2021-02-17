@@ -14,7 +14,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
-my $SYNCPAGERDIR = "~/Documents/SyncPager";
+my $SYNCPAGERDIR = "/home/marisa/Documents/SyncPager";
 
 # No changes below here...
 
@@ -46,7 +46,7 @@ while (-1)
 			close($OUTF);
 			chdir "$SYNCPAGERDIR";
 			print "Starting screen process\n";
-			system("/usr/bin/screen -fa -S SyncPager -d -U -m ./start-alienarena-linux64-dedicated");
+			system("/usr/bin/screen -fa -S SyncPager -d -U -m ./SyncPager");
 		}
 	}
 	else
