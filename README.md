@@ -56,7 +56,7 @@ crontab -e
 
 add this line to the bottom:
 
-@reboot ~/Documents/SyncPager/SyncPager start
+@reboot ~/Documents/SyncPager/startpager start
 
-Finally start it up like this: **cd ~/Documents/SyncPager;~/Documents/SyncPager/SyncPager start**
+Finally start it up like this: **cd ~/Documents/SyncPager;~/Documents/SyncPager/startpager start**
 
