@@ -11,7 +11,7 @@ my $ALERTFILE="./ouralert.wav";
 my $ALERTBELLFILE="./ouralertdoorbell.mp3";
 
 # No changes below here
-my $VERSION="1.0";
+my $VERSION="1.2";
 my $CONF_FILE="config.ini";
 my $CHECK_URL="";
 my $text="";

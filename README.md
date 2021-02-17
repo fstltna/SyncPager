@@ -1,4 +1,4 @@
-# SyncPager (1.1)
+# SyncPager (1.2)
 Alerts the Syncronet system operator that someone wants to talk to them.
 
 Official support sites: [Official Github Repo](https://github.com/fstltna/SyncPager) - [Official Forum](https://synchronetbbs.org/index.php/forum/syncpager) or mail to marisag@synchronetbbs.org
@@ -12,12 +12,12 @@ Official support sites: [Official Github Repo](https://github.com/fstltna/SyncPa
 
 	apt-get install audacious
 
-2. Use CPAN to install the following Perl modules:
+2. Use CPAN to install the following Perl modules (on both client & server):
 
-        Email::Simple
-        Email::Simple::Creator
-        Email::Sender::Simple
-        LWP::Simple
+        cpan -i Email::Simple
+        cpan -i Email::Simple::Creator
+        cpan -i Email::Sender::Simple
+        cpan -i LWP::Simple
 
 3. On the BBS server copy **syncnotify** to **/sbbs/exec** - follow instructions on adding main script in scfg when sysop is being paged
 
@@ -46,6 +46,17 @@ Official support sites: [Official Github Repo](https://github.com/fstltna/SyncPa
 
 ***
 
-Edit the **config.ini** file on your local computer. Should be self explainatory. Most important is the **CheckURL** entry that should be like the default but for your BBS server.
+Copy the **config.ini.example** file to **config.ini** file on your local computer. Then edit it for your settings. Most important is the **CheckURL** entry that should be like the default but for your BBS server.
 
 Then all you need to do is run the SyncPager script and let it run and you will be notified when someone tries to chat with you...
+
+I suggest you do it like this:
+
+crontab -e
+
+add this line to the bottom:
+
+@reboot ~/Documents/SyncPager/SyncPager start
+
+Finally start it up like this: **cd ~/Documents/SyncPager;~/Documents/SyncPager/SyncPager start**
+
