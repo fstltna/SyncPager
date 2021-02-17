@@ -14,7 +14,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
-my $SYNCPAGERDIR = "~/syncpager";
+my $SYNCPAGERDIR = "~/Documents/SyncPager";
 
 # No changes below here...
 
@@ -30,7 +30,7 @@ if ($running ne "")
 while (-1)
 {
 	chdir $SYNCPAGERDIR;
-	# check if Alien Arena server process is running
+	# check if Sync Pager process is running
 	$running=`ps ax|grep "SyncPager"|grep -v grep`;
 	if ($running eq "")
 	{
@@ -41,7 +41,7 @@ while (-1)
 			# The Log Entry
 			my $datestring = localtime();
 			my $TIME="Sync Pager Down, Restarting: $datestring";
-			open(OUTF, ">>$SYNCPAGERDIR/AlienArenaScreen.log") || die "Unable to open $SYNCPAGERDIR/AlienArenaScreen.log for appending";
+			open(OUTF, ">>$SYNCPAGERDIR/SyncPager.log") || die "Unable to open $SYNCPAGERDIR/SyncPager.log for appending";
 			print (OUTF "$TIME\n");
 			close($OUTF);
 			chdir "$SYNCPAGERDIR";
