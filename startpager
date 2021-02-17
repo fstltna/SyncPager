@@ -18,7 +18,7 @@ my $SYNCPAGERDIR = "/home/marisa/Documents/SyncPager";
 
 # No changes below here...
 
-my $running=`ps ax|grep "./SyncPager"|grep -v grep`;
+my $running=`ps ax|grep "./SyncPager"|grep -v grep|grep -v SCREEN`;
 
 # check if SyncPager process is running
 if ($running ne "")
@@ -31,7 +31,7 @@ while (-1)
 {
 	chdir $SYNCPAGERDIR;
 	# check if Sync Pager process is running
-	$running=`ps ax|grep "./SyncPager"|grep -v grep`;
+	$running=`ps ax|grep "./SyncPager"|grep -v grep|grep -v SCREEN`;
 	if ($running eq "")
 	{
 		print "Sync Pager not running\n";
